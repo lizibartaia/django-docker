@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">
+    {% if form.instance.pk %}
+    edit
+    {% else %}
+    new
+    {% endif %}
+    Author
+</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">save</button>
+</form>
+{% endblock %}
